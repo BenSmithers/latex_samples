@@ -1,0 +1,203 @@
+\input{header.cls}
+
+\begin{document}
+
+\begin{singlespace}
+
+	\title{\textbf{The Cavendish Experiment} \\  in \\ Physics 134}
+	\date{February, 2017}
+	\author{Name One \\ and \\ Name Two \\ UC Santa Cruz}
+	\maketitle
+
+\end{singlespace}
+
+\vspace{2cm}
+
+\begin{abstract}
+
+	We attempted to recreate and replicate the original experiment performed by Henry Cavendish in the late 1790s. 
+	In doing so, we reproduced a similar results, determining \(G = \left(X.XXXX\pm 0.0XX\right)\times 10^{-11}\), \(M_{E} = (5.XXX\pm0.0XX)\times 10^{24}\) kg, and \(\rho_{E} = 5XXX\pm XX\) kg m\(^{-3}\). 
+	We suspect sources of error to be ambient vibrations and the movement of nearby persons. 
+
+\end{abstract}
+
+\pagebreak
+\twocolumn	
+
+\paragraph{Introduction}
+
+\paragraph{} As Newton first attempted to explain the motion of the stars, he set forth the law universal of gravitation. 
+It defined the relation
+\begin{equation}
+	F_{g} = G \dfrac{M_{1}M_{2}}{r^{2}}\hspace{0.5cm},
+	\end{equation}
+quantifying the gravitational force between two massive bodies 1 and 2, and of separation \(r\). 
+The necessary constant \(G\) remained elusive for years after Newton's death, and an accurate measurement would not be made until the 1790s. 
+Henry Cavendish, the richest man in England at the time, had developed a curiosity about the Earth's density. 
+Although the radius of the Earth has been known since the time of the Greek philosopher Eratosthenes\footnote{276 - 194 BCE}, its mass remained shrouded in mystery. 
+To calculate the density, Cavendish would need to calculate the Earth's mass. But to calculate the planet's mass, Cavendish needed to calculate the Gravitational Constant \(G\). \cite{134Manual}
+
+Our goal was to reproduce Cavendish's experiment determining \(G\), and then to calculate the density of the Earth. 
+Since the gravitational constant \(G\) has been known to be minuscule, a high precision apparatus is needed to calculate it.
+
+\paragraph{Apparatus and Procedure}
+
+\paragraph{} Much like Cavendish's original experiment, ours is fundamentally based around the precision of a torsion balance. 
+Two small lead balls on the ends of a beam were suspended by a thin tungsten fiber and allowed to rotate freely: the relative angle of which is sensed by an electronic encoder. We placed a small mirror on the beam such that the relative angle could also be measured by bounding a laser off of this mirror and observing by how much the laser is deflected. 
+
+To minimize electromagnetic interference, the small lead balls were placed within an aluminum enclosure.  
+
+Meanwhile, two large lead balls are arranged to be easily moved around the small lead balls. 
+To minimize atmospheric effects, the lead balls are contained within another aluminum box. By moving the large lead balls, we shift the gravitational equilibrium position of the small ones. 
+
+When this is done, the suspended beam will begin to rotate towards a new equilibrium angle, and in the process enter a simple harmonic oscillation about the new equilibrium angle. By studying the period of oscillations and total deflected angle of the beam, we can calculate \(G\). The necessary mathematics to determine the relation
+\begin{equation}\label{eq:longG}
+	G = \dfrac{KR^{2}}{2dm M}\theta_{D}
+	\end{equation}
+are provided in the Physics 134 Lab Manual \cite{134Manual}. Here,  
+\begin{equation}\label{eq:k}
+	K \approx (2\pi/T)^{2} I \approx 2md^{2}(2\pi/T)^{2}
+	\end{equation}
+with
+\begin{equation}\label{eq:i}
+	I = 2m(d^{2} + (2/5)r^{2}) + (m_{b}/12)(l_{b}^{2} + w_{b}^{2}) \approx 2md^{2}.
+\end{equation}
+See Table \ref{tab:parameters} for a complete listing of each experimental constant/observable, its units, notation, and value. 
+Equation \eqref{eq:longG} can be approximated as 
+\begin{equation}\label{eq:G}
+	G = \dfrac{(2\pi/T)^{2}R^{2}d}{M}\theta_{D},
+	\end{equation}
+and this (Eq \eqref{eq:G}) is the form we will use for our calculations of \(G\). 
+Given more time, we would forgo the approximations of Equations \eqref{eq:k} and \eqref{eq:i} for a more accurate result for \(G\). 
+
+\paragraph{Data Collection}
+
+\paragraph{} To make measurements we connected the electronic encoder to a desktop computer, and logged the output Logger Lite. 
+We moved the large lead balls to one extreme and recorded the output of the encoder as the small lead balls oscillated. 
+This allowed for measurements of the small lead balls' period of oscillations. After these motions were dampened sufficiently, we would make a measurement of the laser's position on a target card. 
+Then, we would move the lead balls to the opposite extreme and repeat the process.
+
+By noting the final position of the laser beam at each extreme, we could calculate the laser's deflection from a zero-point halfway between each extreme. 
+
+Then, by measuring the distance the laser travels from the small mirror to the target card we could calculate the angle \(\theta_D\), as shown in Equation \eqref{eq:angle}. The physical arrangement of this apparatus is shown in Figure \ref{fig:laserpath}. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\linewidth]{./Lab134LaserPath}
+\caption{The path of the laser.}
+\label{fig:laserpath}
+\end{figure}
+
+
+Our data and their uncertainties are presented in the appendix in Table \ref{tab:data}, using the relation
+\begin{equation}\label{eq:angle}
+	\theta_{D} = 0.5\arctan\left(\dfrac{L_{d}}{L_{L}} \right)
+	\end{equation}
+for \(\theta_{D}\) where \(L_{d}\) and \(L_{L}\) correspond to the laser deflection and laser beam length, respectively (see Figure \ref{fig:laserpath}). \\
+
+The output from the digital encoder is presented in Figure \ref{fig:logger}. 
+A fit for the exponential term is superimposed over the bottom of the output, and from it we estimated the damping constant of the small beam: \(b \approx 0.001063 \).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\linewidth]{figure_1}
+\caption{Small lead ball oscillations. Exponential function fitted to peaks.}
+\label{fig:logger}
+\end{figure}
+
+Over all five trials, we calculated \(G\) as presented in Table \ref{eq:gcalc} and the uncertainties using Equations \eqref{eq:diff}. 
+\begin{equation}\label{eq:diff}\begin{split}
+	dG & = \dfrac{(2\pi R)^{2}d}{MT^{2}}\left(d\theta_{D} - 2\theta_{D} 	\dfrac{dT}{T} \right) \\
+	d\theta_{D} & = \dfrac{1}{2} \dfrac{L_{L} }{L_{L}^{2} + L_{d}^{2}}dL_{d}
+	\end{split}\end{equation}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}\hline
+		Trial & \(G\) (m\(^{3}\)kg\(^{-1}\)s\(^{-2}\)) \\\hline
+		1 & \((7.XXX\pm 0.26)\times 10^{-11}\) \\\hline
+		2 & \((6.XXX\pm 0.27)\times 10^{-11}\) \\\hline
+		3 & \((7.XXX\pm 0.26)\times 10^{-11}\) \\\hline
+		4 & \((6.XXX\pm 0.27)\times 10^{-11}\) \\\hline
+		5 & \((6.XXX\pm 0.27)\times 10^{-11}\) \\\hline
+		\end{tabular}
+	\caption{Calculations for \(G\)}\label{eq:gcalc}
+	\end{table}
+
+\paragraph{Results}
+
+\paragraph{} By solving for the weighted arithmetic mean of this data set, we arrive at \(G = (6.XXX \pm0.014) \times 10^{-11} \). 
+Using the Earth's radius of \(6.XXX\times 10^{6}\) meters and a surface acceleration of \(9.8\) ms\(^{-2}\), this yields an Earth mass of \((5.XXX \pm 0.018)\times 10^{24}\) kg and a Earth Density of \(XXX \pm 16 \) kg m\(^{-3}\). 
+
+Our calculated value of \(G\) differs from the accepted value of \(6.XXX\text{ }XX(80)\times 10^{-11}\) \cite{pdg} by only three percent. 
+Our other calculated quantities differ by a similar amount. The deviations from the accepted values can be attributed to a number of factors. 
+
+An immediate observation we made is that our apparatus was poorly isolated. 
+For instance, order-of-magnitude calculations can show that an average person of \(\sim 60\)kg placed \(0.5-1.0\) meters from the box can have a similar (if not greater) gravitational effect on the small lead balls as the large ones. 
+While collecting data, the movement of people in the same room as our apparatus would effect the equilibrium point of the small balls. 
+
+Since an experimental setup determining the electron spin resonance is placed roughly a half meter from our apparatus, it is highly likely that the presence and movement of students participating in that experiment skewed our results.
+
+Another source of error may be in ambient vibrational effects; visible as vertical vibrations of the laser point on the paper card. 
+This has an unknown, but potentially detrimental effect on experimental precision. 
+
+\onecolumn
+\singlespacing
+\paragraph{Possible Improvements}
+
+\paragraph{} For future repetitions of this experiment, it would be beneficial to totally isolate the Cavendish apparatus. 
+It should be placed in its own room on a vibrationally-dampened table away from areas with foot traffic. 
+Ideally, it should be possible to adjust the positions of the large lead balls remotely. 
+Furthermore, a significantly greater number of trials and amount of time would improve the accuracy of this experiment. 
+
+
+
+
+\textbf{Appendix}
+\begin{table}[H]
+	\begin{tabular}{| l |l |l |l |}\hline
+		SYMBOL & VALUE & UNITS & DEFINITION \\\hline
+		\(\theta_{D}\) & & Radians & Equilibrium angle of the balance\\\hline
+		\(b\) & & s\(^{-1}\) & Inverse decay time of the oscillation frequency with no damping. \\\hline
+		\(\omega_{0}\) & & s\(^{-1}\) & Oscillation frequency with no damping. \\\hline
+		\(\omega_{1}\) & & s\(^{-1}\) & Observed oscillation frequency with damping \(b\) \\\hline
+		\(T\) & & s & Observed oscillation period \\\hline
+		\(K\) & & & Torsion constant of suspension fiber \\\hline
+		\(I\) & & & Moment of inertia of the boom \\\hline
+		\(M\) & 917 & g & Mass of each large sphere \\\hline
+		\(R_{L}\) & 27.4 & mm & Radius of the large sphere \\\hline
+		\(m\) & 14.7 & g & Mass of each small sphere \\\hline
+		\(r\)& 6.72 & mm & Radius of the small sphere \\\hline
+		\(d\) & 66.56 & mm & Distance from the center of small sphere to rotation axis \\\hline
+		\(D\) & 82.5 & mm & Distance from center of large sphere to rotation axis \\\hline
+		\(R\) & 44.9 & mm & Dist. betw. the center of the small and the large sphere \\\hline
+		\(l_{b}\) & 150 & mm & Length of the aluminum beam \\\hline
+		\(w_{b}\) & 12.9 & mm & Width of the aluminum beam \\\hline
+		\(h_{b}\) & 1.73 & mm & Thickness of the aluminum beam \\\hline 
+		\(m_{b}\) & 8.5 & g & Mass of the aluminum beam \\\hline
+		\(m_{h}\) & 0.34 & g & Missing mass of the hole in the beam \\\hline
+		\(W\) & 35.0 & mm & Thickness of the apparatus \\\hline
+		\end{tabular}
+	\caption{Parameters of the Tel-Atomic apparatus}\label{tab:parameters}
+	\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| l | l | l | r | c | c |}\hline
+		Trial Name & T (s) & Left Ext (mm) & Right Ext (mm) & Deflection (mm) & \(\theta_{D}\) (mrad) \\\hline 
+		Trial 1 & 215\(\pm 2.5\) & -5.XXX\(\pm 0.25\) & 3.XXX\(\pm 0.25\) & 4.XXX\(\pm 0.25\)  & 0.XXX \\\hline
+		Trial 2 & 215\(\pm 2.5\) & -4.XXX\(\pm 0.25\) & 3.XXX\(\pm 0.25\) & 3.XXX\(\pm 0.25\)  & 0.XXX \\\hline
+		Trial 3 & 215\(\pm 2.5\) & -5.XXX\(\pm 0.25\) & 3.XXX\(\pm 0.25\) & 4.XXX\(\pm 0.25\)  & 0.XXX \\\hline
+		Trial 4 & 215\(\pm 2.5\) & -5.XXX\(\pm 0.25\) & 2.XXX\(\pm 0.25\) & 3.XXX\(\pm 0.25\) & 0.XXX \\\hline
+		Trial 5 & 215\(\pm 2.5\) & -5.XXX\(\pm 0.25\)6 & 2.XXX\(\pm 0.25\) & 4.XXX\(\pm 0.25\) & 0.XXX \\\hline
+		\end{tabular}
+	\caption{Data. Angles calculated using laser beam length of \(3.XXX\pm 0.01\) m and \(\sigma_{\theta} = 0.XXX\) mrad.} \label{tab:data}
+	\end{table}
+
+\bibliography{MainBibliography}{}
+\bibliographystyle{unsrt}
+
+
+
+\end{document}
+
