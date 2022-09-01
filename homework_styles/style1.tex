@@ -1,0 +1,107 @@
+\input{header.cls}
+
+\singlespacing
+
+\begin{document}
+\begin{table}
+	\centering
+	\begin{tabular}{R{2in} P{2in} L{2in}}
+		Your Name & \begin{tabular}{c}{\Large Class Theory I} \\ {\Large Problem Set Number }  \end{tabular} & Date 2022 \\\hline
+\end{tabular}
+
+\end{table}
+
+\Qbox{\paragraph{Problem 6.7:} Using helicity amplitudes, calculate the differential cross section for the \(e^{-}\mu^{-}\to e^{-}\mu^{-}\) scattering in the following steps
+\begin{enumerate}[label=\alph*)]
+	\item From the Feynman rules for QED, show that the lowest order QED matrix element for the scattering is 
+	\begin{equation}
+	\mathcal{M}_{fi} = -\dfrac{e^{2}}{(p_{1}-p_{3})^{2}}g_{\mu\nu}\left[\bar{u}(p_{3})\gamma^{\mu}u(p_{1})\right]\left[\bar{u}(p_{4})\gamma^{\nu}u(p_{2})\right],
+	\end{equation}
+	where \(p_{1}\) and \(p_{3}\) are the four-momenta of the initial and final state \(e^{-}\), and \(p_{2}\) and \(p_{4}\) are the four momenta of the initial and final state \(\mu\). 
+	
+	\item Working in the COM frame, writing the four momenta of the initial and final state e's as 
+	\begin{align}
+	p_{1}^{\mu}&=\left(\begin{array}{cccc} E_{1} & 0 & 0 & p\end{array}\right) & &\text{and} & p_{3}^{\mu}&=\left(\begin{array}{cccc} E_{1} & p\sin\theta & 0 & p\cos\theta\end{array}\right) 
+	\end{align}
+	respectively, show that the electron currents for the four possible helicity combinations are 
+	\begin{align}
+		\bar{u}_{\downarrow}(p_{3})\gamma^{\mu}u_{\downarrow}(p_{1}) &= 2\left(\begin{array}{cccc}E_{1}c & ps & -ips & pc\end{array}\right) \\
+		\bar{u}_{\uparrow}(p_{3})\gamma^{\mu}u_{\downarrow}(p_{1})&=2\left(\begin{array}{cccc}ms & 0 & 0 & 0\end{array}\right) \\
+		\bar{u}_{\uparrow}(p_{3})\gamma^{\mu}u_{\uparrow}(p_{1})&= 2\left(\begin{array}{cccc}E_{1}c & ps & ips & pc\end{array}\right)\\
+		\bar{u}_{\downarrow}(p_{3})\gamma^{\mu}u_{\uparrow}(p_{1})&=-2 \left(\begin{array}{cccc}ms & 0 & 0 & 0\end{array}\right)
+	\end{align}
+	where \(s=\sin(\theta/2)\) and \(c=\cos(\theta/2)\). 
+\end{enumerate}
+}\\
+
+\begin{enumerate}[label=\alph*)]
+	\item This will be a t-channel interaction. The 1-3-gamma vertex gives us a 
+	\begin{equation}
+		\bar{u}(p_{3})(ie\gamma^{\mu}) u(p_{1}),
+	\end{equation}
+	the 2-4-gamma vertex gives us a 
+	\begin{equation}
+		\bar{u}_{4}(ie\gamma^{\nu})u(p_{2}),
+	\end{equation}
+	and interaction is mediated by a photon,
+	\begin{equation}
+	\dfrac{-ig_{\mu\nu}}{q^{2}},
+	\end{equation}
+	where \(q\) is the 4-momentum transfer \(p_{1}-p_{3}\). Putting these all together,
+	\begin{equation}
+	-iM_{fi}=\left[\bar{u}(p_{3})(ie\gamma^{\mu}) u(p_{1})\right]\dfrac{-ig_{\mu\nu}}{(p_{1}-p_{3})^{2}}\left[\bar{u}_{4}(ie\gamma^{\nu})u(p_{2})\right].
+	\end{equation}
+	We then combine all the \(i\)'s and being the metric tensor and 4-momentum term out front. 
+	\begin{equation}
+	M_{fi}=-\dfrac{g_{\mu\nu}}{(p_{1}-p_{3})^{2}}\left[\bar{u}(p_{3})(e\gamma^{\mu}) u(p_{1})\right]\left[\bar{u}_{4}(e\gamma^{\nu})u(p_{2})\right]
+	\end{equation}
+	
+	\item Recalling, from Thompson, that the two matter helicity spinors are
+	\begin{align}
+	u_{\uparrow}(p)&=\sqrt{E+m}\left(\begin{array}{c} c\\se^{i\phi} \\\tfrac{p}{E+m}c \\\tfrac{p}{E+m}se^{i\phi} \end{array}\right) & u_{\downarrow}(p)&=\sqrt{E+m}\left(\begin{array}{c}-s\\ ce^{i\phi} \\\tfrac{p}{E+m}s \\ -\tfrac{p}{E+m}ce^{i\phi} \end{array}\right)
+	\end{align}
+	So, we write, explicitly 
+	\begin{align}
+	\hspace{-1.5cm} u_{\uparrow}(p_{3})&=N\left(\begin{array}{c} c\\s \\\tfrac{p}{E+m}c \\\tfrac{p}{E+m}s \end{array}\right) & u_{\downarrow}(p_{3})&=N\left(\begin{array}{c}-s\\ c \\\tfrac{p}{E+m}s \\ -\tfrac{p}{E+m}c \end{array}\right)&u_{\uparrow}(p_{1})&=N\left(\begin{array}{c} 1\\ 0 \\\tfrac{p}{E+m} \\ 0 \end{array}\right) & u_{\downarrow}(p_{1})&=N\left(\begin{array}{c} 0 \\ 1 \\ 0 \\ -\tfrac{p}{E+m} \end{array}\right)
+	\end{align}
+	where \(N=\sqrt{E+m}\).	The rest is just turning the crank on these calculations (using Eqs (Th 6.12-15)).
+	\begin{itemize}
+		\item \(\bar{u}_{\downarrow}(p_{3})\gamma^{\mu}u_{\downarrow}(p_{1})\)
+		\begin{align}
+		\bar{u}_{\downarrow}(p_{3})\gamma^{0}u_{\downarrow}(p_{1}) &= (E+m)(0+ c -0+ \tfrac{p^{2}}{(E+m)^{2}}c) = \tfrac{(E+m)^{2} +E_{1}^{2}-m^{2}}{E+m}c = 2E_{1}c\\
+		\bar{u}_{\downarrow}(p_{3})\gamma^{1}u_{\downarrow}(p_{1}) &=N^{2}[ \tfrac{p}{E+m}s + 0 +\tfrac{p}{E+m}s+0] =2ps \\
+		\bar{u}_{\downarrow}(p_{3})\gamma^{2}u_{\downarrow}(p_{1}) &=-iN^{2}[\tfrac{p}{E+m}s+\tfrac{p}{E+m}s  ] =-2ips\\
+		\bar{u}_{\downarrow}(p_{3})\gamma^{3}u_{\downarrow}(p_{1}) &=N^{2}[0+ \tfrac{p}{E+m}c+0+\tfrac{p}{E+m}c ] =2pc
+		\end{align}
+		Therefore \(\bar{u}_{\downarrow}(p_{3})\gamma^{\mu}u_{\downarrow}(p_{1}) = 2\left(\begin{array}{cccc}E_{1}c & ps & -ips & pc\end{array}\right) \)
+		\item \(\bar{u}_{\uparrow}(p_{3})\gamma^{\mu}u_{\downarrow}(p_{1})\)
+		\begin{align}
+		\bar{u}_{\uparrow}(p_{3})\gamma^{0}u_{\downarrow}(p_{1}) &= (E+m)[0 + s + 0 -\tfrac{E_{1}^{2}-m^{2}}{(E+m)^{2}}s] = \tfrac{E^{2}+m^{2}+2mE-E^{2}+m^{2}}{E+m}s=2ms\\
+		\bar{u}_{\uparrow}(p_{3})\gamma^{1}u_{\downarrow}(p_{1}) &= N^{2}[-\tfrac{p}{E+m}c+0+\tfrac{p}{E+m}c+0]=0\\
+		\bar{u}_{\uparrow}(p_{3})\gamma^{2}u_{\downarrow}(p_{1}) &= -iN^{2}[-\tfrac{p}{E+m}c -0+\tfrac{p}{E+m}c-0]=0\\
+		\bar{u}_{\uparrow}(p_{3})\gamma^{3}u_{\downarrow}(p_{1}) &= N^{2}[0+\tfrac{p}{E+m}s 0-\tfrac{p}{E+m}s]=0
+		\end{align}
+		Therefore \(\bar{u}_{\uparrow}(p_{3})\gamma^{\mu}u_{\downarrow}(p_{1})=2\left(\begin{array}{cccc}ms & 0 & 0 & 0\end{array}\right)\).
+		\item \(\bar{u}_{\uparrow}(p_{3})\gamma^{\mu}u_{\uparrow}(p_{1})\)
+		\begin{align}
+		\bar{u}_{\uparrow}(p_{3})\gamma^{0}u_{\uparrow}(p_{1}) &= (E+m)\left[c + 0 +\tfrac{p^{2}}{(E+m)^{2}}c+0\right]=2E_{1}c \\
+		\bar{u}_{\uparrow}(p_{3})\gamma^{1}u_{\uparrow}(p_{1}) &= (E+m)\left[0+\tfrac{p}{E+m}s+0+\tfrac{p}{E+m}s\right]=2ps\\
+		\bar{u}_{\uparrow}(p_{3})\gamma^{2}u_{\uparrow}(p_{1}) &= -i(E+m)\left[ 0-s\tfrac{p}{E+m}+0-s\tfrac{p}{E+m} \right] = 2ips\\
+		\bar{u}_{\uparrow}(p_{3})\gamma^{3}u_{\uparrow}(p_{1}) &= (E+m)\left[c\tfrac{p}{E+m}-0+c\tfrac{p}{E+m}-0\right] = 2pc
+		\end{align}
+		Therefore \(\bar{u}_{\uparrow}(p_{3})\gamma^{\mu}u_{\uparrow}(p_{1})= 2\left(\begin{array}{cccc}E_{1}c & ps & ips & pc\end{array}\right)\\\)
+		
+		\item \(\bar{u}_{\downarrow}(p_{3})\gamma^{\mu}u_{\uparrow}(p_{1})\)
+		\begin{align}
+		\bar{u}_{\downarrow}(p_{3})\gamma^{0}u_{\uparrow}(p_{1})&=(E+m)\left[-s+0+s\tfrac{p^{2}}{(E+m)^{2}}+0\right]=-2ms \\
+		\bar{u}_{\downarrow}(p_{3})\gamma^{1}u_{\uparrow}(p_{1})&=(E+m)\left[0+c\tfrac{p}{E+m}+0-c\tfrac{p}{E+m}\right]=0 \\
+		\bar{u}_{\downarrow}(p_{3})\gamma^{2}u_{\uparrow}(p_{1})&=-i(E+m)\left[0-c\tfrac{p}{E+m}+0+c\tfrac{p}{E+m}\right]=0 \\
+		\bar{u}_{\downarrow}(p_{3})\gamma^{3}u_{\uparrow}(p_{1})&=(E+m)\left[-s\tfrac{p}{E+m}-0+s\tfrac{p}{E+m}-0\right] =0
+		\end{align}
+		Therefore \(\bar{u}_{\downarrow}(p_{3})\gamma^{\mu}u_{\uparrow}(p_{1})=-2 \left(\begin{array}{cccc}ms & 0 & 0 & 0\end{array}\right)\)
+	\end{itemize}
+\end{enumerate}
+
+
+
+\end{document}

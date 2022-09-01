@@ -1,0 +1,51 @@
+\input{header.cls}
+
+\firstname{Your}
+\familyname{Name}
+\title{Example CV}                               % optional, remove/comment the line if not wanted
+%\address{Address}{ZIP City, State}       % optional, remove/comment the line if not wanted; the "country" arguments can be omitted or provided empty
+\mobile{(555) 123-4566}                          % optional, remove/comment the line if not wanted       
+\email{email.address@gmail.com}                               % optional, remove/comment the line if not wanted
+\homepage{google.com}                         % optional, remove/comment the line if not wanted
+%\extrainfo{additional information}                 % optional, remove/comment the line if not wanted
+% \photo[64pt][0.4pt]{picture.webp}                       % optional, uncomment the line if wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+\quote{Overqualified? I'm hardly competent!}     
+%
+\begin{document}
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Education}
+\cventry{2018--2022}{General BS, and Computational BA}{University of State at City}{Summa Cum Laude}{GPA of 4.0}{}
+\section{Skills}
+\begin{itemize}
+  \item \LaTeX
+  \item Internet
+  \item Listing things
+\end{itemize}
+\section{Experience}
+\subsection{Research}
+\cventry{Feb 2019 - Present}{Lockheed Martin}{Arlington}{}{}{Developed nano-porous channels to maximize electrical thoroughput for next-generation aviation technology}
+\cventry{May 2018 - Feb 2019}{US Department of State}{Washington DC}{}{}{Brokered peace treaty between warring moonshine-running organizations in eastern Arkansas.}
+\subsection{Publications}
+\cventry{2021}{Physical Review Letters}{}{}{}{Experimental Test of Parity Conservation in Beta Decay \\\url{https://journals.aps.org/pr/abstract/10.1103/PhysRev.105.1413}}
+\cventry{2021}{Computer Physics Communications}{}{}{}{Double Beta-Disintegration \\\url{https://journals.aps.org/pr/abstract/10.1103/PhysRev.48.512}}
+\subsection{Invited Talks}
+\cventry{2022}{ACRNYM}{Austin, TX}{}{}{These are the details}
+
+\section{References}
+\begin{cvcolumns}
+  \cvcolumn{Professor Boss, \\ Professor of Professing}{(555) 123-3034}
+  \cvcolumn{Professor P. Professorson, \\ Assistant Professor of Drama}{(555) 123-2295}
+\end{cvcolumns}
+%\clearpage
+%-----       letter       ---------------------------------------------------------
+% recipient data
+\recipient{NASA's Applied Physics Laboratory \\ \\ \\ }
+\date{}
+\opening{To whom it may concern}
+\closing{Thank you for your consideration,}
+%\enclname{I am a hard working individual who is never satisfied until the job is done. I am a people person who enjoys spending time with and working with others. I will make an excellent addition to the Woodstocks team, and will try my best to do well in any position I am placed.}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+%\makelettertitle
+%\makeletterclosing
+\end{document}
